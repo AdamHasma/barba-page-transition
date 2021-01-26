@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My HTML Page</title>
+  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
+</head>
+
+<body data-barba="wrapper">
+  <div class="transition"></div>
+<header>
+  <nav>
+    <ul>
+      <li> <a href="home.html">
+        HOME
+      </a></li>
+      <li><a href="about.html">
+        ABOUT
+      </a></li>
+    </ul>
+  </nav>
+</header>
+  <main data-barba="container" data-barba-namespace="home">
+    <div class="container">
+      <div class="content-wrapper">
+        <h1 class="title">barba.js and GSAP Page Transition</h1>
+        <a class="button-a" href="about.html"><button class="button">Go to About</button></a>
+      </div>
+    </div>
+  </main>
+<footer>Footer</footer>
+  <script src="main.js" type="text/javascript"></script>
+  <script type="javascript" src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js" integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ==" crossorigin="anonymous"></script>
+</body>
+
+</html>
