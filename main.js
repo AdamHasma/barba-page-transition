@@ -1,3 +1,5 @@
+import barba from 'node_modules/@barba/core/dist/core'
+
 const pageTransition = () => {
   let tl = gsap.timeline();
 
@@ -12,7 +14,19 @@ const pageTransition = () => {
   });
 }
 
-function delay(n) {
+const contentAnimation = () => {
+  let tl = gsap.timeline();
+  tl.from(".left", {
+    duration: 1.5,
+    translateY: 50,
+    opacity: 0
+  });
+  tl.to(".left", {
+    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)"
+  });
+}
+
+const delay = n => {
   n = n || 2000;
   return new Promise(done => {
     setTimeout(() => {
