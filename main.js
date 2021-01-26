@@ -1,4 +1,4 @@
-import barba from '@barba/core'
+import barba from '@barba/core';
 
 const pageTransition = () => {
   let tl = gsap.timeline();
