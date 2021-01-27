@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "main.js",
   "dependencies": {
-    "@barba/core": "^2.9.7",
     "autoprefixer": "^10.2.3"
   },
   "devDependencies": {},

@@ -1,29 +1,35 @@
-import barba from '@barba/core';
+const transition = document.querySelector('.transition')
 
-const pageTransition = () => {
-  let tl = gsap.timeline();
+const pageTransitionIn = () => {
+  return gsap
+  .to(transition, { duration: .5, scaleY: 1, transformOrigin: 'bottom left'})
+  };
 
-  tl.to(".transition", {
-    duration: .5,
-    scaleY: 1
-  });
-  tl.to(".transition", {
-    duration: .5,
-    scaleY: 0,
-    delay: .1
-  });
+const pageTransitionOut = container => {
+  return gsap
+    .timeline({ delay: 1 }) // More readable to put it here
+    .add('start') // Use a label to sync screen and content animation
+    .to(transition, {
+      duration: 0.5,
+      scaleY: 0,
+      skewX: 0,
+      transformOrigin: 'top left',
+      ease: 'power1.out'
+    }, 'start')
+    .call(contentAnimation, [container], 'start')
 }
 
-const contentAnimation = () => {
-  let tl = gsap.timeline();
-  tl.from(".left", {
-    duration: 1.5,
-    translateY: 50,
-    opacity: 0
-  });
-  tl.to(".left", {
-    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)"
-  });
+const contentAnimation = container => {
+  // GSAP methods can be chained and return directly a promise
+  return gsap
+    .timeline()
+    .from(container.querySelector('.is-animated'), {
+      duration: 0.5,
+      translateY: 10,
+      opacity: 0,
+      stagger: 0.4
+    })
+    .from(mainNavigation, { duration: .5, translateY: -10, opacity: 0})
 }
 
 const delay = n => {
@@ -36,21 +42,21 @@ const delay = n => {
 }
 
 barba.init({
-  sync: true,
   transitions: [{
     async leave(data) {
       const done = this.async();
 
-      pageTransition();
+      data.current.container.remove()
+      pageTransitionIn();
       await delay(1500);
       done();
     },
 
     async enter(data) {
-      contentAnimation();
+      pageTransitionOut(data.next.container)
     },
     async once(data) {
-      contentAnimation();
+      contentAnimation(data.next.container);
     }
   }]
 });

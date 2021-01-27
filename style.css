@@ -69,7 +69,6 @@ body {
   pointer-events: none;
   background-color: white;
   position: absolute;
-  opacity: 0.5;
   transform-origin: top;
   transform: scaleY(0);
 }
