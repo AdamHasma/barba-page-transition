@@ -19,6 +19,7 @@ $second-font: Open Sans
   src: url('assets/webFonts/Casta-Bold/font.woff2') format('woff2'), url('webFonts/Casta-Bold/font.woff') format('woff')
 
 body
+  overflow: hidden
   line-height: 1.15
   font-family: $font
   background-color: $primary-color
@@ -57,19 +58,41 @@ body
   border: none
   padding: 15px 30px 10px
   cursor: pointer
+  transition: all .2s
+  border: 1px solid transparent
+
+.button:hover
+  background: transparent
+  border: 1px solid white
+  color: white
+
+.button:focus
+  background: transparent
+  border: 1px solid white
+  color: white
 
 .button-a
   margin-top: 50px
 
-.transition
-  height: 100vh
+.loading-screen
+  position: relative
+  padding-left: 0
+  padding-right: 0
+  padding-top: 0
+  background-color: #fff
+  width: 0%
+  height: 100%
+
+.load-container
+  position: fixed
+  top: 0
+  left: 0
   width: 100%
-  z-index: 2
+  height: 100vh
+  overflow: hidden
+  z-index: 10
   pointer-events: none
-  background-color: white
-  position: absolute
-  transform-origin: top
-  transform: scaleY(0)
+
 
 a
   color: white

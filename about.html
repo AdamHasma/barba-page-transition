@@ -9,7 +9,9 @@
 </head>
 
 <body data-barba="wrapper">
-  <div class="transition"></div>
+  <div class="load-container">
+    <div class="loading-screen"></div>
+  </div>
   <header>
     <nav>
       <ul>
@@ -23,9 +25,8 @@
     </nav>
   </header>
   <main data-barba="container" data-barba-namespace="about">
-    <div class="container">
+    <div class="animate-this container">
       <div class="content-wrapper">
-        <img class="main-img" src="assets/pic.jpg" alt="">
         <h1 class="title">About me</h1>
         <p>
           basically my biography
@@ -35,7 +36,7 @@
     </div>
   </main>
   <footer>Footer</footer>
-  <script src="https://unpkg.com/@barba/core"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.7/dist/barba.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js" integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ==" crossorigin="anonymous"></script>
   <script src="main.js" type="text/javascript"></script>
 </body>

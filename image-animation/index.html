@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My HTML Page</title>
+  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
+</head>
+
+<body data-barba="wrapper">
+  <div class="load-container">
+    <div class="loading-screen"></div>
+  </div>
+  <header>
+    <nav>
+      <ul>
+        <li> <a href="index.html">
+            HOME
+          </a></li>
+        <li><a class="to-about" href="about.html">
+            ABOUT
+          </a></li>
+      </ul>
+    </nav>
+  </header>
+  <main data-barba="container" data-barba-namespace="home">
+    <div class="animate-this container">
+      <div class="content-wrapper">
+        <h1 class="title index-title">Architecture</h1>
+        <a class="button-a" href="#">
+          <div class="image-container unset">
+            <img class="" src="assets/pic.jpg" alt="">
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+  <footer>Footer</footer>
+  <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.7/dist/barba.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js" integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ==" crossorigin="anonymous"></script>
+  <script src="main.js" type="text/javascript"></script>
+</body>
+
+</html>
