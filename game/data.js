@@ -1,8 +1,21 @@
 /* ── IMAGE MAP ── */
 // 16:9 ratio (1280x720) — FLUX generates more natural proportions on a standard
 // canvas, and CSS background-size:cover crops cleanly without stretching.
+// A deterministic seed per prompt forces a fresh, stable image for each scene
+// (same image on every visit, but distinct between scenes).
+function seedFromText(text) {
+  var h = 0;
+  for (var i = 0; i < text.length; i++) {
+    h = (h * 31 + text.charCodeAt(i)) % 1000000;
+  }
+  return h;
+}
+
 function pollinationsUrl(prompt) {
-  return 'https://image.pollinations.ai/prompt/' + encodeURIComponent(prompt + ', 16:9 wide cinematic composition, correct proportions') + '?width=1280&height=720&nologo=true&model=flux';
+  var fullPrompt = prompt + ', 16:9 wide cinematic composition, correct proportions';
+  var seed = seedFromText(fullPrompt);
+  return 'https://image.pollinations.ai/prompt/' + encodeURIComponent(fullPrompt) +
+         '?width=1280&height=720&nologo=true&model=flux&seed=' + seed;
 }
 
 const IMAGE_MAP = {

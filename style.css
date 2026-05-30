@@ -12,7 +12,7 @@
   --text-primary:  #e8e6f0;
   --text-muted:    #8888aa;
   --font-title:    'Pirata One', 'Cinzel', Georgia, serif;
-  --font-body:     'Crimson Text', Georgia, serif;
+  --font-body:     'Nunito', 'Segoe UI', sans-serif;
 }
 
 *, *::before, *::after {
