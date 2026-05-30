@@ -21,7 +21,7 @@ function pollinationsUrl(prompt) {
 const IMAGE_MAP = {
   death:       pollinationsUrl('cinematic anime style, young man dying on rainy city street at night, dramatic lighting, neon reflections, dark atmosphere'),
   void:        pollinationsUrl('ethereal void between worlds, floating soul, purple cosmic energy, isekai anime style, beautiful cosmos'),
-  divine:      pollinationsUrl('heavenly divine realm, golden throne room, gods in white robes, radiant light beams, epic fantasy anime art'),
+  system:      pollinationsUrl('vast cosmic interface, glowing blue holographic panels and runes floating in endless dark space, sci-fi magic, ethereal data streams, anime style'),
   forest:      pollinationsUrl('magical ancient enchanted forest, isekai fantasy, morning fog, vibrant lush colors, glowing plants, anime style'),
   village:     pollinationsUrl('cozy medieval fantasy village at dusk, warm firelight, cobblestone streets, thatched roofs, anime art style'),
   dungeon:     pollinationsUrl('dark underground dungeon, flickering torchlight, ancient stone corridors, shadows, fantasy RPG atmosphere'),
@@ -131,14 +131,14 @@ const SKILLS = {
   },
   divine_shield: {
     id: 'divine_shield',
-    name: 'Divine Shield',
+    name: 'Aegis Barrier',
     description: 'Absorb the next attack completely',
     icon: '🛡️',
     mpCost: 20,
     combatOnly: true,
     use: function(state, enemy) {
       state.shielded = true;
-      return 'A radiant barrier surrounds you!';
+      return 'A shimmering energy barrier surrounds you!';
     }
   },
   thunder_strike: {
@@ -235,14 +235,14 @@ var SCENES = {
 
   scene_divine_meeting: {
     id: 'scene_divine_meeting',
-    type: 'divine',
-    title: 'Before the Gods',
-    text: 'Three figures shimmer into existence — robed in light, faces obscured by radiance. Their forms shift between human and something vast and ancient.\n\n*"Traveler,"* the central figure speaks. *"Your world\'s thread has cut short. By the laws of cosmic balance, you are owed... compensation."*\n\nThe figure on the left smiles: *"A new world awaits. A world of magic, of dungeons, of destiny. We will send you there."*\n\nThe figure on the right tilts its head: *"But what gift shall we grant you, little mortal?"*\n\nA System panel materializes before you, glowing gold:\n\n**[ CHOOSE YOUR BLESSING ]**',
+    type: 'system',
+    title: 'The System Awakens',
+    text: 'There are no faces here. No voices from beyond.\n\nInstead, a vast lattice of glowing blue panels unfolds across the darkness — endless lines of light, runes, and code, stretching in every direction. A cold, precise presence regards you. Not a person. Not a god. Something else.\n\n**[ ENTITY: WORLD SYSTEM — ONLINE ]**\n**[ ANOMALY DETECTED: SOUL TERMINATED AHEAD OF SCHEDULE ]**\n**[ STATUS: ELIGIBLE FOR RELOCATION ]**\n\nText scrolls before you, calm and mechanical:\n\n*"A flawed ending. Correctable. A new world requires an anchor — and you are... available. Compensation will be issued."*\n\nThree options crystallize into glowing panels:\n\n**[ SELECT YOUR CORE SKILL ]**',
     image: null,
     onEnter: null,
     choices: [
       {
-        label: '⚔️ "Grant me overwhelming power — unique cheat skills!"',
+        label: '⚔️ [ OFFENSE ] Overwhelming destructive power.',
         requires: null,
         effect: function(s) {
           s.skills.push('fireball');
@@ -252,7 +252,7 @@ var SCENES = {
         next: 'scene_system_awakening'
       },
       {
-        label: '🌑 "Give me shadow mastery — I\'ll work in the dark."',
+        label: '🌑 [ STEALTH ] Mastery over shadow and movement.',
         requires: null,
         effect: function(s) {
           s.skills.push('shadow_step');
@@ -262,7 +262,7 @@ var SCENES = {
         next: 'scene_system_awakening'
       },
       {
-        label: '🛡️ "I want protection — an unbreakable shield."',
+        label: '🛡️ [ DEFENSE ] An impenetrable energy barrier.',
         requires: null,
         effect: function(s) {
           s.skills.push('divine_shield');
@@ -276,9 +276,9 @@ var SCENES = {
 
   scene_system_awakening: {
     id: 'scene_system_awakening',
-    type: 'divine',
-    title: 'The System Speaks',
-    text: 'The blessing crashes into your soul like a wave.\n\n**[ SYSTEM INITIALIZED ]**\n**[ UNIQUE SKILL ACQUIRED ]**\n**[ WELCOME, HERO ]**\n\nA blue translucent panel floats at the edge of your vision — a game-like interface, as if reality itself has been coded.\n\nThe gods are gone. The void trembles. And then — you are falling.\n\nFalling through layers of light and shadow, through the sound of wind and distant birdsong, toward something green and enormous rushing up below—\n\n*IMPACT.*',
+    type: 'system',
+    title: 'Initialization',
+    text: 'The power floods into you like a current — rewriting something fundamental, line by line.\n\n**[ SKILL INSTALLED ]**\n**[ SYSTEM INITIALIZED ]**\n**[ HOST REGISTERED ]**\n\nA blue translucent panel locks into the corner of your vision — a permanent interface, as if reality itself runs on code only you can see.\n\nThe vast lattice collapses inward, its light folding into a single point. The System falls silent. And then — you are falling.\n\nThrough layers of light and shadow, through wind and distant birdsong, toward something green and enormous rushing up below—\n\n*IMPACT.*',
     image: null,
     onEnter: function(s) { s.flags.systemActive = true; },
     choices: [
@@ -382,7 +382,7 @@ var SCENES = {
         next: 'scene_tavern'
       },
       {
-        label: '"I am a hero, sent by the gods. Announce me."',
+        label: '"I am a Summoned Hero from another world. Announce me."',
         requires: null,
         effect: function(s) { s.flags.announcedHero = true; },
         next: 'scene_tavern'
@@ -426,7 +426,7 @@ var SCENES = {
     id: 'scene_guild_registration',
     type: 'village',
     title: 'Adventurers\' Guild',
-    text: 'The Guild Hall is adjacent to the tavern — a stone building with a bronze plaque reading *"Emberveil Adventurers\' Guild, Est. Year 312."*\n\nA young clerk adjusts her spectacles at the desk.\n\n*"Registration? That\'ll be 5 gold. You start at F-Rank — everyone does. Though..."*\n\nShe lowers her voice: *"If you really are what people are saying — a hero sent by the gods — then the Guild Master will want to speak with you personally."*\n\nYour System chimes: **[ QUEST AVAILABLE: Register with the Guild ]**',
+    text: 'The Guild Hall is adjacent to the tavern — a stone building with a bronze plaque reading *"Emberveil Adventurers\' Guild, Est. Year 312."*\n\nA young clerk adjusts her spectacles at the desk.\n\n*"Registration? That\'ll be 5 gold. You start at F-Rank — everyone does. Though..."*\n\nShe lowers her voice: *"If you really are what people are saying — an Otherworlder, summoned from beyond — then the Guild Master will want to speak with you personally."*\n\nYour System chimes: **[ QUEST AVAILABLE: Register with the Guild ]**',
     image: null,
     onEnter: function(s) { s.flags.visitedGuild = true; },
     choices: [
@@ -748,7 +748,7 @@ var SCENES = {
         next: 'scene_capital_arrival'
       },
       {
-        label: '🛡️ Fortify your defense with divine protection.',
+        label: '🛡️ Fortify your defense with an impenetrable barrier.',
         requires: null,
         effect: function(s) {
           if (s.skills.indexOf('divine_shield') === -1) s.skills.push('divine_shield');
@@ -932,15 +932,15 @@ var SCENES = {
     choices: [
       { label: '"I will stay. This world needs a guardian."', requires: null, effect: function(s){ s.flags.endingStay = true; }, next: 'scene_epilogue' },
       { label: '"Is there a way home? I want to go back."', requires: null, effect: function(s){ s.flags.endingHome = true; }, next: 'scene_epilogue' },
-      { label: '"What if I became a god and protected all worlds?"', requires: null, effect: function(s){ s.flags.endingGod = true; }, next: 'scene_epilogue' }
+      { label: '"What if I ascended — beyond this world — to protect them all?"', requires: null, effect: function(s){ s.flags.endingGod = true; }, next: 'scene_epilogue' }
     ]
   },
 
   scene_epilogue: {
     id: 'scene_epilogue',
-    type: 'divine',
+    type: 'system',
     title: 'Epilogue',
-    text: 'The gods return.\n\nThree figures of light, the same ones who sent you here — they look different now. Smaller, somehow. More humble.\n\n*"You have done what no hero before you could,"* the central figure says. *"The cycle is broken. You have earned... a choice."*\n\nThe sky opens above the ruined Spire. Galaxies spin in the gap between worlds.\n\nWhatever comes next — you face it as someone who has died, been reborn, and chosen to keep living.\n\nNot a commuter rushing to work.\n\nSomething more.\n\n**[ THE END ]**\n\n*Thank you for playing Isekai Chronicle.*',
+    text: 'Your System interface flickers — then changes. The cold, mechanical text softens, as if something behind it has been watching all along.\n\n**[ ANOMALY RESOLVED ]**\n**[ HOST EXCEEDED ALL PARAMETERS ]**\n**[ THE CYCLE IS BROKEN ]**\n\nA single line scrolls, slower than the rest:\n\n*"You were never meant to be more than an anchor. You became the thing that saved a world. That was not in my calculations. You have... earned a choice."*\n\nAbove the ruined Spire, the sky tears open. Galaxies turn in the gap between worlds.\n\nWhatever comes next — you face it as someone who died, was rewritten, and chose to keep living.\n\nNot a commuter rushing to work.\n\nSomething more.\n\n**[ THE END ]**\n\n*Thank you for playing Isekai Chronicle.*',
     image: null,
     onEnter: null,
     choices: [
