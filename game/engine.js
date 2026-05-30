@@ -6,7 +6,7 @@ var GameEngine = (function() {
   function createFreshState(name) {
     return {
       playerName: name || 'Hero',
-      sceneId: 'scene_death',
+      sceneId: 'tod',
       stats: {
         hp: 100, maxHp: 100,
         mp: 50,  maxMp: 50,
@@ -151,14 +151,14 @@ var GameEngine = (function() {
     var saved = loadGame();
     if (saved) {
       state = saved;
-      GameUI.renderScene(SCENES[state.sceneId] || SCENES.scene_death, state);
+      GameUI.renderScene(SCENES[state.sceneId] || SCENES.tod, state);
       GameUI.renderStats(state);
       GameUI.renderInventory(state);
       GameUI.renderSkills(state);
     } else {
       GameUI.showNameModal(function(name) {
         state = createFreshState(name);
-        navigateTo('scene_death');
+        navigateTo('tod');
       });
     }
 
@@ -176,7 +176,7 @@ var GameEngine = (function() {
       state = null;
       GameUI.showNameModal(function(name) {
         state = createFreshState(name);
-        navigateTo('scene_death');
+        navigateTo('tod');
       });
     });
   }
