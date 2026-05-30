@@ -1,41 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My HTML Page</title>
-  <link rel="stylesheet" type="text/css" title="Cool stylesheet" href="style.css">
+  <title>Isekai Chronicle</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body data-barba="wrapper">
-  <div class="load-container">
-    <div class="loading-screen"></div>
-  </div>
-  <header>
-    <nav>
-      <ul>
-        <li> <a href="home.html">
-            HOME
-          </a></li>
-        <li><a href="about.html">
-            ABOUT
-          </a></li>
-      </ul>
-    </nav>
-  </header>
-  <main data-barba="container" data-barba-namespace="home">
-    <div class="animate-this container">
-      <div class="content-wrapper">
-        <h1 class="title">barba.js and GSAP Page Transition</h1>
-        <a class="button-a" href="about.html"><button class="button">Go to About</button></a>
-      </div>
+  <header id="game-header">
+    <h1 class="game-logo">⚔️ ISEKAI CHRONICLE</h1>
+    <div class="header-controls">
+      <button id="btn-save">💾 Save</button>
+      <button id="btn-load">📂 Load</button>
+      <button id="btn-reset">🔄 New Game</button>
     </div>
-  </main>
-  <footer>Footer</footer>
-  <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.9.7/dist/barba.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js" integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ==" crossorigin="anonymous"></script>
-  <script src="main.js" type="text/javascript/module"></script>
-</body>
+  </header>
 
+  <div id="game-container">
+
+    <main id="game-main">
+      <div id="scene-image-wrapper">
+        <div id="scene-bg"></div>
+        <div id="scene-image-overlay"></div>
+        <h2 id="scene-title"></h2>
+      </div>
+      <div id="narrative-box"></div>
+      <div id="choices-container"></div>
+    </main>
+
+    <aside id="game-sidebar">
+      <section id="stats-panel">
+        <h3>STATS</h3>
+        <div id="player-name-display"></div>
+        <div class="stat-row">
+          <span class="stat-label">❤️ HP</span>
+          <div class="bar-wrap"><div id="hp-bar" class="bar hp-bar-fill"></div></div>
+          <span id="hp-text" class="stat-value">100/100</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">💧 MP</span>
+          <div class="bar-wrap"><div id="mp-bar" class="bar mp-bar-fill"></div></div>
+          <span id="mp-text" class="stat-value">50/50</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">✨ XP</span>
+          <div class="bar-wrap"><div id="xp-bar" class="bar xp-bar-fill"></div></div>
+          <span id="xp-text" class="stat-value">0/100</span>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-item"><span>⚔️</span><span class="stat-label">ATK</span><b id="stat-atk">12</b></div>
+          <div class="stat-item"><span>🛡️</span><span class="stat-label">DEF</span><b id="stat-def">5</b></div>
+          <div class="stat-item"><span>⚡</span><span class="stat-label">SPD</span><b id="stat-spd">10</b></div>
+          <div class="stat-item"><span>⭐</span><span class="stat-label">LVL</span><b id="stat-lvl">1</b></div>
+          <div class="stat-item"><span>💰</span><span class="stat-label">Gold</span><b id="stat-gold">0</b></div>
+        </div>
+      </section>
+
+      <section id="inventory-panel">
+        <h3>INVENTORY</h3>
+        <div id="inventory-grid"></div>
+        <div id="inventory-empty" class="empty-hint">No items yet</div>
+      </section>
+
+      <section id="skills-panel">
+        <h3>SKILLS</h3>
+        <div id="skills-list"></div>
+        <div id="skills-empty" class="empty-hint">No skills yet</div>
+      </section>
+    </aside>
+  </div>
+
+  <!-- Combat overlay -->
+  <div id="combat-overlay" class="hidden">
+    <div id="combat-inner">
+      <div id="enemy-info">
+        <h3 id="enemy-name"></h3>
+        <div class="enemy-hp-row">
+          <div class="bar-wrap"><div id="enemy-hp-bar" class="bar enemy-bar-fill"></div></div>
+          <span id="enemy-hp-text" class="stat-value"></span>
+        </div>
+      </div>
+      <div id="combat-log"></div>
+      <div id="combat-actions"></div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast" class="hidden"></div>
+
+  <!-- Level-up modal -->
+  <div id="levelup-modal" class="hidden">
+    <div id="levelup-content">
+      <div class="levelup-star">⭐</div>
+      <h2>LEVEL UP!</h2>
+      <p id="levelup-text"></p>
+      <button id="levelup-close">Continue Your Journey</button>
+    </div>
+  </div>
+
+  <!-- Name input modal -->
+  <div id="name-modal" class="hidden">
+    <div id="name-content">
+      <h2>A New Journey Begins</h2>
+      <p>What is your name, traveler?</p>
+      <input type="text" id="name-input" placeholder="Enter your name..." maxlength="20" autocomplete="off">
+      <button id="name-confirm">Begin</button>
+    </div>
+  </div>
+
+  <script src="game/data.js"></script>
+  <script src="game/engine.js"></script>
+  <script src="game/combat.js"></script>
+  <script src="game/ui.js"></script>
+  <script src="main.js"></script>
+</body>
 </html>
