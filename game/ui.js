@@ -11,26 +11,26 @@ var GameUI = (function() {
 
     if (imageCache[url]) {
       bgEl.style.backgroundImage = 'url(' + imageCache[url] + ')';
+      bgEl.classList.remove('image-loading');
       bgEl.style.opacity = '1';
       return;
     }
 
-    bgEl.style.opacity = '0';
+    // Show shimmer immediately while image generates
     bgEl.classList.add('image-loading');
+    bgEl.style.opacity = '1';
 
     var testImg = new Image();
     testImg.onload = function() {
+      bgEl.style.backgroundImage = 'url(' + url + ')';
       bgEl.classList.remove('image-loading');
       imageCache[url] = url;
-      bgEl.style.backgroundImage = 'url(' + url + ')';
-      bgEl.style.opacity = '1';
     };
     testImg.onerror = function() {
-      bgEl.classList.remove('image-loading');
-      var fallback = 'https://picsum.photos/seed/' + sceneType + '_isekai/1200/600';
-      imageCache[url] = fallback;
+      var fallback = 'https://picsum.photos/seed/' + encodeURIComponent(sceneType) + '_rpg/1200/600';
       bgEl.style.backgroundImage = 'url(' + fallback + ')';
-      bgEl.style.opacity = '1';
+      bgEl.classList.remove('image-loading');
+      imageCache[url] = fallback;
     };
     testImg.src = url;
   }
