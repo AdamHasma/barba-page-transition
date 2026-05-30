@@ -1,14 +1,3 @@
-@font-face {
-  font-family: "Casta-Regular";
-  src: url("assets/webFonts/Casta-Regular/font.woff2") format("woff2"),
-       url("assets/webFonts/Casta-Regular/font.woff") format("woff");
-}
-@font-face {
-  font-family: "Casta-Bold";
-  src: url("assets/webFonts/Casta-Bold/font.woff2") format("woff2"),
-       url("assets/webFonts/Casta-Bold/font.woff") format("woff");
-}
-
 :root {
   --bg-primary:    #0d0d1a;
   --bg-panel:      #12122a;
@@ -22,8 +11,8 @@
   --accent-xp:     #f39c12;
   --text-primary:  #e8e6f0;
   --text-muted:    #8888aa;
-  --font-title:    'Casta-Bold', Georgia, serif;
-  --font-body:     'Casta-Regular', Georgia, serif;
+  --font-title:    'Pirata One', 'Cinzel', Georgia, serif;
+  --font-body:     'Crimson Text', Georgia, serif;
 }
 
 *, *::before, *::after {
@@ -218,8 +207,8 @@ body {
   flex: 1;
   overflow-y: auto;
   padding: 1rem 1rem;
-  font-size: clamp(0.85rem, 2.5vw, 0.92rem);
-  line-height: 1.75;
+  font-size: clamp(0.95rem, 2.7vw, 1.05rem);
+  line-height: 1.7;
   color: var(--text-primary);
   cursor: pointer;
   min-height: 80px;
@@ -303,16 +292,19 @@ body {
 }
 
 #game-sidebar h3 {
-  font-family: var(--font-title);
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 0.6rem;
 }
 
 #player-name-display {
-  font-family: var(--font-title);
-  font-size: 0.9rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
   color: var(--accent-gold);
   margin-bottom: 0.5rem;
 }
@@ -464,7 +456,7 @@ body {
 }
 
 .skill-item .skill-icon { font-size: 0.9rem; }
-.skill-item .skill-name { color: var(--accent-magic); font-family: var(--font-title); }
+.skill-item .skill-name { color: var(--accent-magic); font-family: var(--font-body); font-weight: 600; }
 .skill-item .skill-mp { color: var(--text-muted); font-size: 0.68rem; margin-left: auto; }
 
 .empty-hint {
@@ -668,8 +660,9 @@ body {
   border: none;
   border-radius: 6px;
   padding: 0.55rem 1.4rem;
-  font-family: var(--font-title);
-  font-size: 0.88rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
   cursor: pointer;
   letter-spacing: 0.04em;
   transition: opacity 0.2s;

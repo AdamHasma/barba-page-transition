@@ -1,6 +1,8 @@
 /* ── IMAGE MAP ── */
+// 16:9 ratio (1280x720) — FLUX generates more natural proportions on a standard
+// canvas, and CSS background-size:cover crops cleanly without stretching.
 function pollinationsUrl(prompt) {
-  return 'https://image.pollinations.ai/prompt/' + encodeURIComponent(prompt) + '?width=1200&height=600&nologo=true&model=flux';
+  return 'https://image.pollinations.ai/prompt/' + encodeURIComponent(prompt + ', 16:9 wide cinematic composition, correct proportions') + '?width=1280&height=720&nologo=true&model=flux';
 }
 
 const IMAGE_MAP = {
