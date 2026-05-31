@@ -2,7 +2,62 @@ var GameUI = (function() {
   var typewriterTimer = null;
   var typewriterDone = false;
   var fullText = '';
+  var fullHtml = '';
   var imageCache = {};
+
+  /* ── MARKDOWN → HTML ── */
+  function parseMarkdown(text) {
+    var segments = [];
+    var regex = /\*\*(.+?)\*\*|\*(.+?)\*/g;
+    var lastIndex = 0;
+    var match;
+    while ((match = regex.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        segments.push({ text: text.slice(lastIndex, match.index), tag: null });
+      }
+      if (match[1] !== undefined) {
+        segments.push({ text: match[1], tag: 'strong' });
+      } else {
+        segments.push({ text: match[2], tag: 'em' });
+      }
+      lastIndex = match.index + match[0].length;
+    }
+    if (lastIndex < text.length) {
+      segments.push({ text: text.slice(lastIndex), tag: null });
+    }
+    return segments;
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function renderSegment(seg, partial) {
+    var txt = (partial !== undefined) ? seg.text.slice(0, partial) : seg.text;
+    var html = escapeHtml(txt).replace(/\n/g, '<br>');
+    if (seg.tag && txt.length > 0) return '<' + seg.tag + '>' + html + '</' + seg.tag + '>';
+    return html;
+  }
+
+  function buildPartialHtml(segments, visibleCount) {
+    var html = '';
+    var remaining = visibleCount;
+    for (var i = 0; i < segments.length && remaining > 0; i++) {
+      var seg = segments[i];
+      if (remaining >= seg.text.length) {
+        html += renderSegment(seg);
+        remaining -= seg.text.length;
+      } else {
+        html += renderSegment(seg, remaining);
+        remaining = 0;
+      }
+    }
+    return html;
+  }
+
+  function buildFullHtml(segments) {
+    return segments.map(function(seg) { return renderSegment(seg); }).join('');
+  }
 
   /* ── IMAGE LOADING ── */
   function loadSceneImage(sceneType, sceneOverride) {
@@ -37,17 +92,20 @@ var GameUI = (function() {
 
   /* ── TYPEWRITER ── */
   function typewriterText(text, element, speed) {
+    var segments = parseMarkdown(text);
+    var totalChars = segments.reduce(function(sum, s) { return sum + s.text.length; }, 0);
     fullText = text;
+    fullHtml = buildFullHtml(segments);
     typewriterDone = false;
     if (typewriterTimer) clearInterval(typewriterTimer);
-    element.textContent = '';
+    element.innerHTML = '';
     var i = 0;
     speed = speed || 22;
 
     typewriterTimer = setInterval(function() {
-      if (i < text.length) {
-        element.textContent += text[i];
+      if (i < totalChars) {
         i++;
+        element.innerHTML = buildPartialHtml(segments, i);
         element.scrollTop = element.scrollHeight;
       } else {
         clearInterval(typewriterTimer);
@@ -63,7 +121,7 @@ var GameUI = (function() {
       typewriterTimer = null;
     }
     var el = document.getElementById('narrative-box');
-    el.textContent = fullText;
+    el.innerHTML = fullHtml;
     typewriterDone = true;
   }
 
