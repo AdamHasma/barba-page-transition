@@ -1,0 +1,218 @@
+{
+  "id": "ch02",
+  "title": "Chapter 2: Slave Caravan",
+  "scenes": {
+
+    "ch02_intro": {
+      "id": "ch02_intro",
+      "type": "mountain",
+      "title": "The Chain",
+      "text": "Marching.\n\nThat is the situation in its entirety. Iron shackles, too tight, wound around wrists that are past the point of minding. Wind off the cliff face. Grey sky. A mountain pass that goes on longer than mountains should.\n\nYou are one in a long chain of shackled figures. Ahead of you, a man with broad shoulders and a bloodied back moves with a grim, measured rhythm. Behind you, someone is cursing under his breath in a language that the Nightmare Spell has helpfully translated without your permission.\n\nArmed soldiers on horseback pass at intervals. They do not look at you warmly.\n\nThe Nightmare Spell created this situation. Somewhere far above in the waking world, an old policeman told you exactly what to do first.\n\n*The first thing — the very first thing — is check your Attributes and your Aspect.*\n\nYou are currently very cold and very tired. But he was right.",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "The veteran said the very first thing. Do it now.",
+          "requires": { "flag": "heard_veteran_advice" },
+          "effect": [{ "op": "addXp", "value": 5 }],
+          "next": "ch02_status_check"
+        },
+        {
+          "label": "Focus. Read your status.",
+          "requires": null,
+          "effect": null,
+          "next": "ch02_status_check"
+        }
+      ]
+    },
+
+    "ch02_status_check": {
+      "id": "ch02_status_check",
+      "type": "mountain",
+      "title": "Temple Slave",
+      "text": "You concentrate. Focus inward, let the cold and the chain noise fall behind a wall of attention.\n\nRunes appear in the air in front of you — visible only to you. You don't know this alphabet. You understand it anyway.\n\nNAME: SUNLESS. TRUE NAME: — RANK: ASPIRANT.\nSOUL CORE: DORMANT.\nATTRIBUTES: [FATED], [MARK OF DIVINITY], [CHILD OF SHADOWS].\nASPECT: [TEMPLE SLAVE].\n\nThree hidden Attributes. The word FATED does something unpleasant to the back of your neck that has nothing to do with the wind.\n\nThen you find the Aspect description.\n\n*[Slave is a useless wretch with no skills or abilities worth a mention. A temple slave is just the same, except much rarer.]*\n\nYou read it again.\n\nThen again.\n\nThe Spell put you in a frozen mountain pass, chained to a slave caravan, gave you an Aspect it describes as a *useless wretch,* and is calling this a fair trial.",
+      "image": null,
+      "onEnter": [
+        { "op": "addXp", "value": 10 }
+      ],
+      "choices": [
+        {
+          "label": "Keep your thoughts to yourself.",
+          "requires": null,
+          "effect": null,
+          "next": "ch02_decision_composure"
+        }
+      ]
+    },
+
+    "ch02_decision_composure": {
+      "id": "ch02_decision_composure",
+      "type": "mountain",
+      "title": "Keep It In",
+      "text": "You have some very specific thoughts. They are detailed and they involve a fair amount of profanity and at least one serious accusation of fraud.\n\nThe broad-shouldered man in front of you is large. The soldier twenty paces ahead is armed. You are shackled to a chain with dozens of other people and currently bleeding from both wrists.\n\nYour situation does not favor loud opinions.\n\nThe thoughts can stay thoughts.\n\n...Probably.",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "Bite your lip. Keep your face completely blank.",
+          "requires": null,
+          "effect": null,
+          "next": "ch02_stumble"
+        },
+        {
+          "label": "The words form before you can stop them. *What the actual—*",
+          "requires": null,
+          "effect": null,
+          "next": "ch02_gameover_outburst"
+        }
+      ]
+    },
+
+    "ch02_gameover_outburst": {
+      "id": "ch02_gameover_outburst",
+      "type": "game_over",
+      "title": "Overheard",
+      "text": "*\"—actual fuck is a useless wretch?!\"*\n\nThe words are out before they finish forming.\n\nThe chain goes taut. The man behind you stops mid-curse. The broad-shouldered man in front of you turns, slowly, and for the first time you see his face.\n\nThen you hear the horse.\n\nThe older soldier doesn't need an explanation. He takes one look — at you, standing slightly crooked, pulling the chain — and makes a decision.\n\nHis arm comes back.\n\nThe blow is not the last one.\n\nYou don't make it to camp.\n\n**[ CONTROL YOURSELF. THE NIGHTMARE IS WATCHING. ]**\n**[ YOU HAVE FAILED YOUR FIRST TRIAL. ]**",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "⎌ Load Chapter Checkpoint",
+          "requires": null,
+          "effect": null,
+          "next": "__checkpoint__"
+        },
+        {
+          "label": "↺ Start Over",
+          "requires": null,
+          "effect": null,
+          "next": "__newgame__"
+        }
+      ]
+    },
+
+    "ch02_stumble": {
+      "id": "ch02_stumble",
+      "type": "caravan",
+      "title": "Pulled Chain",
+      "text": "You dismiss the runes.\n\nTemple Slave. Useless wretch. The Spell is clearly having fun at your expense. You will deal with that later — after you survive, which requires walking, which requires focusing on the road in front of you.\n\nConcentrating, you lose the rhythm.\n\nYour foot catches on a protruding stone. Your weight drops sideways. The chain pulls taut with a harsh metallic clank, and the man behind you erupts immediately.\n\n*\"Whore's bastard! Watch where you're going!\"*\n\nThe broad-shouldered man does not turn around.\n\n*\"Why bother?\"* he says, calm and even. *\"The weakling will be dead by sunrise anyway. The mountain will kill him.\"*\n\nYou recover your balance. You do not respond to either of them.",
+      "image": null,
+      "onEnter": [
+        { "op": "addXp", "value": 5 }
+      ],
+      "choices": [
+        {
+          "label": "Find the rhythm again. Keep walking.",
+          "requires": null,
+          "effect": null,
+          "next": "ch02_caravan_talk"
+        }
+      ]
+    },
+
+    "ch02_caravan_talk": {
+      "id": "ch02_caravan_talk",
+      "type": "caravan",
+      "title": "Three Voices",
+      "text": "A few seconds pass. Then the broad-shouldered man speaks again, almost to himself.\n\n*\"It'll kill you and me too, just a bit later. I really don't know what the Imperials are thinking, forcing us into this cold.\"*\n\n*\"Speak for yourself, fool!\"* The man behind you — the shifty one, quick desperate eyes, always scanning — takes it personally. *\"I'm planning to survive.\"*\n\nThen a third voice from somewhere further back in the chain. Calm. Measured. The voice of someone who thinks before speaking.\n\n*\"This pass is usually warmer this time of year. Bad luck, nothing more.\"*\n\nA pause.\n\n*\"I would also advise you against harming the boy. Haven't you seen the markings on his skin? He was born a slave. A temple slave, specifically. The Imperials destroyed the last temple of the Shadow God not long ago — I suspect that is how he came to be here.\"*\n\n*\"So what? A dead god's temple.\"*\n\n*\"The Empire is protected by the War God. We are not protected by anything. Do you really want to find out what happens?\"*\n\nNo one has an answer to that.\n\nYou file the information away. A god. A destroyed temple. Markings on your skin you cannot see but everyone else apparently can.",
+      "image": null,
+      "onEnter": [
+        { "op": "addXp", "value": 5 }
+      ],
+      "choices": [
+        {
+          "label": "Keep walking. Think about what this means.",
+          "requires": null,
+          "effect": null,
+          "next": "ch02_soldier"
+        }
+      ]
+    },
+
+    "ch02_soldier": {
+      "id": "ch02_soldier",
+      "type": "caravan",
+      "title": "The Flask",
+      "text": "A soldier appears from up the column on a white horse — young, well-fitted armor, handsome in the irritating way that historical dramas prefer their male leads. He surveys the chain of slaves with the expression of someone trying to feel something useful.\n\nHis gaze finds you.\n\n*\"Bear with it a little more, child. We will stop for the night soon.\"*\n\nYou are seventeen. This observation is unwelcome.\n\nHe takes a flask from his belt and extends it toward you. Your mouth is very dry.\n\nYou reach for it.\n\nThe whip catches you across the back before your fingers touch the flask.\n\nThe pain is specific and complete. You stumble, pull the chain, hear the man behind you curse as the iron yanks at his wrists. Your vision goes briefly white.\n\n*\"What do you think you're doing?\"*\n\nThe older soldier has appeared from up the column. He is not young. His expression suggests he does not need to be.\n\n*\"I was giving this boy some water,\"* the young soldier says. His voice has gone flat.\n\n*\"He'll get water with the rest when we camp. These people are not your friends. They are not people. Treat them like people and they'll start imagining things.\"*\n\nThe young soldier looks at you. He lowers his head. The flask goes back on his belt.\n\nThe older soldier rides past without another word.",
+      "image": null,
+      "onEnter": [
+        { "op": "addXp", "value": 5 },
+        { "op": "addHp", "value": -10 }
+      ],
+      "choices": [
+        {
+          "label": "Don't react. Watch him go.",
+          "requires": null,
+          "effect": null,
+          "next": "ch02_decision_defiance"
+        }
+      ]
+    },
+
+    "ch02_decision_defiance": {
+      "id": "ch02_decision_defiance",
+      "type": "caravan",
+      "title": "Still Waters",
+      "text": "He's five paces away. Then ten.\n\nYour back burns where the leather opened the skin. Your wrists are bleeding fresh into the iron shackles again. You are cold and you haven't had water in hours and the man who just did that is riding away with his spine straight and his chin up.\n\nSomething very quiet forms inside you. Not a feeling — a fact. A precise, specific fact about the future.\n\n*I don't know how. But I will watch you die first.*\n\nHe might glance back. Soldiers like that do — they check to make sure the lesson landed.\n\nThe question is what he sees when he does.",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "Lower your head. Look at the snow.",
+          "requires": null,
+          "effect": null,
+          "next": "ch02_end"
+        },
+        {
+          "label": "Hold his gaze when he looks back.",
+          "requires": null,
+          "effect": null,
+          "next": "ch02_gameover_defiance"
+        }
+      ]
+    },
+
+    "ch02_gameover_defiance": {
+      "id": "ch02_gameover_defiance",
+      "type": "game_over",
+      "title": "Made an Example",
+      "text": "He looks back.\n\nYou don't look away.\n\nThe moment holds. You see the change in his face — surprise first, then something that is not surprise.\n\nHe wheels his horse.\n\nThe second strike lands on your shoulders. The third across your back. The fourth somewhere that drops you to your knees. By the time it ends, you are in the snow, the chain pulling taut behind you, and the rest of the column has stopped to watch.\n\n*\"Let that be instructive,\"* he says to no one in particular.\n\nHe rides away.\n\nYou don't get up.\n\n**[ THIS IS NOT YET THE TIME FOR DEFIANCE. LEARN THE DIFFERENCE. ]**\n**[ YOU HAVE FAILED YOUR FIRST TRIAL. ]**",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "⎌ Load Chapter Checkpoint",
+          "requires": null,
+          "effect": null,
+          "next": "__checkpoint__"
+        },
+        {
+          "label": "↺ Start Over",
+          "requires": null,
+          "effect": null,
+          "next": "__newgame__"
+        }
+      ]
+    },
+
+    "ch02_end": {
+      "id": "ch02_end",
+      "type": "mountain",
+      "title": "Two Promises",
+      "text": "You look at the snow.\n\nHis horse moves past. He doesn't glance back.\n\nYou walk. Step. Step. Another step. The wind has gotten worse. Your back is a line of fire that you will not think about. Your wrists are bleeding freely. The shifty man behind you has resumed his quiet cursing, and the mountain is enormous and cold and entirely indifferent to your situation.\n\nNone of that is the important thing.\n\nYou have two promises now. Made silently, kept internally, belonging to no one but you.\n\nOne for the older soldier, who rides with his back straight and his principles intact.\n\nOne for the younger one, who had water and put it away.\n\n*I will watch you die first.*\n\n*And you, second.*\n\nYou don't know how. You don't know when. You have no skills worth mentioning, a useless Aspect, and three hidden Attributes that the Spell hasn't bothered to explain.\n\nBut the outcome is not decided yet. It never is, until it is.\n\nThe mountain cuts a stark line against the grey sky. Ahead, somewhere, is the night camp. And after that, another day.\n\nYou keep walking.\n\n**[ CHAPTER 2: COMPLETE. ]**\n\n---\n\n*Chapter 3: The Strings of Fate — coming soon.*",
+      "image": null,
+      "onEnter": [
+        { "op": "addXp", "value": 15 }
+      ],
+      "choices": [
+        {
+          "label": "↺ Restart Chapter 2",
+          "requires": null,
+          "effect": null,
+          "next": "__checkpoint__"
+        }
+      ]
+    }
+
+  }
+}

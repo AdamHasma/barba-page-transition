@@ -1,0 +1,202 @@
+{
+  "id": "ch01",
+  "title": "Chapter 1: Nightmare Begins",
+  "scenes": {
+
+    "ch01_intro": {
+      "id": "ch01_intro",
+      "type": "slum",
+      "title": "The Mark",
+      "text": "The mark is cold to the touch.\n\nYou find it this morning — inside of your left wrist, a grey smudge the size of a fingerprint. You try to wipe it off. Water doesn't work. Your sleeve doesn't work. Nothing works.\n\nYou sit on the floor of your room for a long time.\n\nYou're seventeen. You live alone in a single room in the Outskirts, not far from the waste processing yards. You eat when you can, sleep badly, and don't think much about the future — not out of pessimism. Just accuracy.\n\nThe Nightmare Spell doesn't care about any of that.\n\nYou pull your sleeve down. Then back up. The mark is still there.\n\n*The Spell always completes its work.*\n\nYou've heard that your whole life. You never thought about what it meant until now.",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "Think about your options.",
+          "requires": null,
+          "effect": null,
+          "next": "ch01_decision"
+        }
+      ]
+    },
+
+    "ch01_decision": {
+      "id": "ch01_decision",
+      "type": "slum",
+      "title": "What Now",
+      "text": "The Third Special Directive is simple:\n\n*Report to the nearest precinct immediately upon discovery. Do not attempt removal. Do not delay.*\n\nYou've known this since school. You've seen what happens to people who ignore it — twice in your block in the last three years. The mark spreads. The sleepiness comes. At some point you stop waking up, and then something else wakes up in your place.\n\nYou could try to disappear into the Outskirts. Cut the mark off. Try to burn it. People have tried. There are stories.\n\nNone of them end well.\n\nOr you could walk to the precinct. Get processed. Get shipped into your First Nightmare with no training, no resources, no family legacy — and a fifteen percent survival rate.\n\nYou look at the mark.\n\nTwo choices. One of them is just dying slower.",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "Walk to the precinct.",
+          "requires": null,
+          "effect": [{ "op": "setFlag", "name": "surrendered" }],
+          "next": "ch01_coffee"
+        },
+        {
+          "label": "Go back inside. There has to be another way.",
+          "requires": null,
+          "effect": [{ "op": "setFlag", "name": "tried_to_hide" }],
+          "next": "ch01_gameover_hide"
+        }
+      ]
+    },
+
+    "ch01_gameover_hide": {
+      "id": "ch01_gameover_hide",
+      "type": "game_over",
+      "title": "End of the Line",
+      "text": "You go back inside.\n\nThree days pass. You sleep in twenty-minute intervals. Then ten. Then you stop being able to track them.\n\nOn the fifth day, the mark has spread past your elbow. You notice this the way you notice things when you've been awake too long — slowly, without much surprise.\n\nYou had a plan once. You don't remember it now.\n\nYou're sitting on the floor when the last interval ends. You don't feel afraid. You feel the way you feel at the end of a very long shift — like you've been waiting a long time for this to finally be over.\n\nThe Spell completes its work.\n\n**[ END ]**",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "⎌ Load Chapter Checkpoint",
+          "requires": null,
+          "effect": null,
+          "next": "__checkpoint__"
+        },
+        {
+          "label": "↺ Start Over",
+          "requires": null,
+          "effect": null,
+          "next": "__newgame__"
+        }
+      ]
+    },
+
+    "ch01_coffee": {
+      "id": "ch01_coffee",
+      "type": "slum",
+      "title": "Ritual",
+      "text": "The precinct is three kilometers away on foot. You've made this walk before.\n\nYou stop at a street vendor two blocks from your building. They have real coffee — plant-based, not synthetic. The kind that higher-tier citizens drink. You've never tried it.\n\nIt costs most of what you have left in your pocket.\n\nYou buy it anyway.\n\nYou sit on a bench across the street from the police station and hold the cup in both hands. Steam rises. It smells expensive. You tell yourself this is a reward. A last small indulgence before whatever comes next.\n\nThen you take a sip.\n\nIt's terrible. Aggressively, specifically, memorably bitter. You stare at the cup with genuine betrayal.\n\n*Of course it is.*\n\nYou finish every drop anyway — you're not going to waste it just because it's disgusting. You throw the empty cup toward a bin, miss, walk back, place it inside carefully.\n\nThen you cross the street.",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "Enter the station.",
+          "requires": null,
+          "effect": null,
+          "next": "ch01_code_black"
+        }
+      ]
+    },
+
+    "ch01_code_black": {
+      "id": "ch01_code_black",
+      "type": "station",
+      "title": "Intake",
+      "text": "A tired officer at the front desk gives you one look — cheap clothes, unhealthily thin, pale, dark circles — and his expression says *wrong building, kid.*\n\nYou clear your throat.\n\n*\"As demanded by the Third Special Directive, I am here to surrender myself as a carrier of the Nightmare Spell.\"*\n\nThe officer goes through several expressions very quickly. He stares at your left wrist. Then he hits a button on his terminal.\n\n*\"CODE BLACK IN THE LOBBY. I repeat — CODE BLACK.\"*\n\nThe next twenty minutes are efficient and impersonal. Forms. Sensors pressed against your wrist. A scanner reading something you can't see. Questions you answer on autopilot. They guide you to the basement in a way that is technically voluntary — you walk, no one drags you, the hall is just very narrow and has one direction.\n\nThe restraint chair in the vault is padded, at least.\n\nThe heavy door shuts. The lock engages with a sound like something being decided.\n\nYou wait.",
+      "image": null,
+      "onEnter": [
+        { "op": "addXp", "value": 30 },
+        { "op": "setFlag", "name": "processed" }
+      ],
+      "choices": [
+        {
+          "label": "Wait.",
+          "requires": null,
+          "effect": null,
+          "next": "ch01_veteran"
+        }
+      ]
+    },
+
+    "ch01_veteran": {
+      "id": "ch01_veteran",
+      "type": "station",
+      "title": "The Veteran",
+      "text": "The gray-haired policeman who enters ten minutes later is not the tired officer from upstairs. This one has a different weight to him — the kind that comes from having seen a lot of terrible things and choosing to keep coming in to work anyway.\n\nHe checks the restraints methodically. Checks something on his wrist. Then he looks at you with steady, practiced eyes.\n\n*\"What's your name, kid?\"*\n\n*\"Sunless.\"*\n\nA raised eyebrow. He doesn't press it. *\"How long can you stay awake?\"*\n\nThe truth: not long. The drowsiness has been building for days, ever since the mark appeared. You've been fighting it with bad coffee and cold water. You're losing.\n\n*\"A little while,\"* you say.\n\nHe sighs the way people sigh when they expected exactly that answer.\n\n*\"Then listen carefully. We don't have time for the full procedure.\"*",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "Listen.",
+          "requires": null,
+          "effect": null,
+          "next": "ch01_veteran_speech"
+        }
+      ]
+    },
+
+    "ch01_veteran_speech": {
+      "id": "ch01_veteran_speech",
+      "type": "station",
+      "title": "Before You Go",
+      "text": "His voice is even. Methodical. He's done this before.\n\n*\"Once you fall asleep, you'll be in your First Nightmare. It's a trial — designed to be survivable, but not by much. You're at a disadvantage. I won't pretend otherwise. But kids from the Outskirts are tough.\"*\n\n*\"The first thing you must do — the very first thing — is check your Attributes and your Aspect. They appear the moment you enter. If your Aspect is combat-oriented, things will be easier. If it isn't, you'll have to be smart. There are no useless Aspects. Well. Almost none.\"*\n\nThe drowsiness is pulling at the edges of your vision. The fluorescent lights are warm. The chair, impossibly, is more comfortable than your bed at home.\n\n*\"If you die, a Nightmare Creature comes through the gate into the real world. My colleagues will have to deal with it. So please — don't die, Sunless. Or if you must die, try to not die immediately. The nearest Awakened support is three hours away.\"*\n\nA pause.\n\n*\"Good luck.\"*\n\nThe warmth is winning.",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "Fight the drowsiness. Memorize his words.",
+          "requires": null,
+          "effect": [{ "op": "setFlag", "name": "heard_veteran_advice" }],
+          "next": "ch01_sleep_falls"
+        },
+        {
+          "label": "The warmth wins.",
+          "requires": null,
+          "effect": null,
+          "next": "ch01_sleep_falls"
+        }
+      ]
+    },
+
+    "ch01_sleep_falls": {
+      "id": "ch01_sleep_falls",
+      "type": "station",
+      "title": "Under",
+      "text": "The lights recede.\n\nNot literally — they're still there, fluorescent strips on a grey ceiling. But they're getting further away. The veteran's voice is still going somewhere behind a wall of static.\n\nYou think, briefly, about the mark. About the Outskirts. About the coffee, which was terrible and cost too much and you drank every drop of it.\n\nYour eyelids are very heavy.\n\nYou stop fighting it.\n\nThe dark comes up like water.",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "...",
+          "requires": null,
+          "effect": null,
+          "next": "ch01_nightmare_entry"
+        }
+      ]
+    },
+
+    "ch01_nightmare_entry": {
+      "id": "ch01_nightmare_entry",
+      "type": "nightmare",
+      "title": "First Trial",
+      "text": "The darkness speaks.\n\n*[Aspirant. Welcome to the Nightmare Spell. Prepare for your First Trial.]*\n\nThen cold. Real cold — the kind that gets into your chest and stays there.\n\nWind. Or something like wind. And beneath it: breathing. Too many people breathing in a confined space. The creak of iron. The crunch of frozen ground under dozens of feet.\n\nYou open your eyes.\n\nGrey sky. A mountain pass ascending into low cloud. Snow and iron and unwashed bodies. All around you: people in chains, hunched against the cold, barely dressed for it. Grey-armored soldiers standing at intervals, watching.\n\nYou look at your left wrist.\n\nThe mark is gone. Clean skin. But something else is there — not visible, not quite feelable. More like *knowing.* The way you know you can read without looking at words.\n\n**[ ASPECT REVEALED: TEMPLE SLAVE ]**\n**[ DORMANT TIER — ATTRIBUTES HIDDEN ]**\n**[ YOUR FIRST TRIAL BEGINS. ]**\n\nOne of the soldiers is watching you.",
+      "image": null,
+      "onEnter": [
+        { "op": "addXp", "value": 50 },
+        { "op": "setFlag", "name": "nightmare_entered" },
+        { "op": "addSkill", "id": "aspect_temple_slave" }
+      ],
+      "choices": [
+        {
+          "label": "Don't react. Look around quietly.",
+          "requires": null,
+          "effect": null,
+          "next": "ch01_end"
+        }
+      ]
+    },
+
+    "ch01_end": {
+      "id": "ch01_end",
+      "type": "nightmare",
+      "title": "Chapter 1: Complete",
+      "text": "You are in a slave caravan on a frozen mountain pass.\n\nYou have no weapons. No allies. No plan. An Aspect the system calls *Temple Slave* — the kind of name that sounds like an insult from the Spell itself.\n\nHidden Attributes you can't read yet. Soldiers watching. Chains on your wrists. Somewhere below, the real world, a vault, a gray-haired policeman who told you not to die.\n\nYou survived the first decision.\n\nThe Nightmare has more in front of you.\n\n---\n\n*Chapter 2: Slave Caravan — coming soon.*",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "↺ Restart Chapter 1",
+          "requires": null,
+          "effect": null,
+          "next": "__checkpoint__"
+        }
+      ]
+    }
+
+  }
+}

@@ -135,7 +135,7 @@ var CombatEngine = (function() {
 
     if (state.shielded) {
       state.shielded = false;
-      addLog(currentEnemy.name + ' attacks — blocked by Divine Shield!', 'system-msg');
+      addLog(currentEnemy.name + ' attacks — absorbed by your barrier!', 'system-msg');
     } else {
       var raw = currentEnemy.attack + randInt(-2, 2);
       var crit = Math.random() < 0.08;

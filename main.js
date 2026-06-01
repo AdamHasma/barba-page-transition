@@ -1,3 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-  GameEngine.init();
+document.addEventListener('DOMContentLoaded', async function() {
+  await GameEngine.init();
 });

@@ -1,0 +1,224 @@
+{
+  "id": "ch03",
+  "title": "Chapter 3: The Strings of Fate",
+  "scenes": {
+
+    "ch03_intro": {
+      "id": "ch03_intro",
+      "type": "caravan",
+      "title": "Fresh Air",
+      "text": "The dark mood passes faster than you expect.\n\nYou breathe in the mountain air — clean and cold, nothing like the Outskirts. Back home, the air tastes of micro dust and filtration chemicals. Only the very rich breathe air like this. You breathe it now, chained to a line of strangers, climbing toward your death.\n\n*'Truly, being chosen by the Spell has its benefits.'*\n\nAhead, a slave stumbles and does not get up. The soldiers drag him to the road's edge and toss him into the abyss. You watch him fall.\n\n*'Poor fellow. Rest in peace.'*\n\nAll things considered, you are in good spirits.",
+      "image": null,
+      "onEnter": [
+        { "op": "addXp", "value": 20 }
+      ],
+      "choices": [
+        {
+          "label": "Continue up the mountain.",
+          "requires": null,
+          "effect": null,
+          "next": "ch03_decision_a"
+        }
+      ]
+    },
+
+    "ch03_decision_a": {
+      "id": "ch03_decision_a",
+      "type": "caravan",
+      "title": "Strings of Fate",
+      "text": "You were too outraged by your Aspect last time to read the Attribute descriptions carefully.\n\nYou have time now. The caravan drags itself up the mountain in silence. Your wrists ache, your feet are numb, and the cold is trying to peel the skin from your face. But Attributes represent one's natural traits and affinities — sometimes passive abilities. It might be worth knowing what you actually have.\n\n*'Or I could just suffer in peace.'*",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "Study your Attributes carefully.",
+          "requires": null,
+          "effect": null,
+          "next": "ch03_attributes"
+        },
+        {
+          "label": "Save your strength. You know enough already.",
+          "requires": null,
+          "effect": null,
+          "next": "ch03_gameover_a"
+        }
+      ]
+    },
+
+    "ch03_gameover_a": {
+      "id": "ch03_gameover_a",
+      "type": "game_over",
+      "title": "Blind in the Dark",
+      "text": "You decide you've seen enough. Temple Slave, three hidden Attributes — what's left to read?\n\nHours pass. The caravan stops. The soldiers light a bonfire.\n\nThen the fire goes out.\n\nAnd something comes down from the sky.\n\nIn the dark — mountain dark, real dark, with no city glow to soften it — you cannot see a thing. You don't know that shadows recognize you. You don't know your eyes work differently now. You run. Into a rock. Into the chain. Into the thing that is already there.\n\n**[ YOU WERE NOT READY ]**",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        { "label": "⎌ Load Chapter Checkpoint", "requires": null, "effect": null, "next": "__checkpoint__" },
+        { "label": "↺ Start Over", "requires": null, "effect": null, "next": "__newgame__" }
+      ]
+    },
+
+    "ch03_attributes": {
+      "id": "ch03_attributes",
+      "type": "caravan",
+      "title": "Your Attributes",
+      "text": "You focus inward. The runes sharpen.\n\n**[ ATTRIBUTE: FATED ]**\n*\"The strings of fate wrap tightly around you. Unlikely events, both good and bad, are drawn by your presence. There are those who are blessed, and there are those who are cursed… but rarely both.\"*\n\n**[ ATTRIBUTE: MARK OF DIVINITY ]**\n*\"You bear a faint scent of divinity, as though someone briefly touched by it once, a long time ago.\"*\n\n**[ ATTRIBUTE: CHILD OF SHADOWS ]**\n*\"Shadows recognize you as one of their own.\"*\n\nYou stare at the last one for a long moment.\n\n*'Hmmm. Interesting.'*",
+      "image": null,
+      "onEnter": [
+        { "op": "addSkill", "id": "fated" },
+        { "op": "addSkill", "id": "mark_of_divinity" },
+        { "op": "addSkill", "id": "child_of_shadows" },
+        { "op": "addXp", "value": 20 }
+      ],
+      "choices": [
+        {
+          "label": "Think about what these mean.",
+          "requires": null,
+          "effect": null,
+          "next": "ch03_analysis"
+        }
+      ]
+    },
+
+    "ch03_analysis": {
+      "id": "ch03_analysis",
+      "type": "caravan",
+      "title": "The Main Culprit",
+      "text": "[Fated] — that's the one responsible for all of this. It sounds like destiny, but the description is more honest: improbable things happen near you. Good ones and bad ones both.\n\n*'This is how I ended up with a rare, useless Aspect. And a strange variant of it, at that.'*\n\n[Mark of Divinity] allows passage into sacred places in the Dream Realm and enhances certain sorceries. Useful — if there were sacred places nearby, and if your Aspect had anything to do with sorcery.\n\n[Child of Shadows] is the strange one. You have never heard of it. No obvious use comes to mind.\n\nNot yet.",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "Wait for the answer to come to you.",
+          "requires": null,
+          "effect": null,
+          "next": "ch03_nightfall"
+        }
+      ]
+    },
+
+    "ch03_nightfall": {
+      "id": "ch03_nightfall",
+      "type": "shadow",
+      "title": "Something Good",
+      "text": "The sun hides behind the mountain. The sky turns from pale grey to black in minutes.\n\nYou notice you can still see.\n\nNot faintly — not as shapes or outlines. Perfectly. The grain of the rocks, the expression on the nearest soldier's face, the frost on the other slaves' eyelashes. The treeline far below, clear as midday.\n\n*'Child of Shadows. So that's what it does.'*\n\nYou look at the world with new eyes. The chains. The road. The dark edge of the abyss.\n\nYou file it away carefully.\n\n*'Finally something good.'*",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "The caravan slows. It will stop soon.",
+          "requires": null,
+          "effect": null,
+          "next": "ch03_camp"
+        }
+      ]
+    },
+
+    "ch03_camp": {
+      "id": "ch03_camp",
+      "type": "winter_camp",
+      "title": "Camp",
+      "text": "*\"Stop the caravan! Prepare to camp!\"*\n\nThe slaves fall where they stand the moment the soldiers allow it. A clearing, partly sheltered by an overhang of rock. The soldiers attend to their horses before anyone lights a fire. The heavy wagon is pushed forward as a windbreak.\n\nThe stronger slaves crowd toward the bonfire. You end up at the outer ring, back to the cold, watching their warmth from a distance.\n\nA soldier moves through with water and bread. A few sips. A piece of something rock-hard and moldy. You eat every crumb. You are still hungry.",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "Look around the camp.",
+          "requires": null,
+          "effect": null,
+          "next": "ch03_decision_b"
+        }
+      ]
+    },
+
+    "ch03_decision_b": {
+      "id": "ch03_decision_b",
+      "type": "winter_camp",
+      "title": "Bloodbane",
+      "text": "A few steps past the end of the paving stones, bright red berries cluster in the snow. You noticed them along the road earlier — small, vivid things, almost cheerful against the white.\n\nThe slave chained behind you has noticed them too. His eyes glitter.\n\nYou are very hungry. The bread barely counted. The berries are right there.\n\n*'How poisonous could mountain berries actually be?'*",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "Resist. Wait and see what the others do.",
+          "requires": null,
+          "effect": null,
+          "next": "ch03_scholar"
+        },
+        {
+          "label": "Eat a handful. You need the energy.",
+          "requires": null,
+          "effect": null,
+          "next": "ch03_gameover_b"
+        }
+      ]
+    },
+
+    "ch03_gameover_b": {
+      "id": "ch03_gameover_b",
+      "type": "game_over",
+      "title": "Bloodbane",
+      "text": "The berries are tart, a little bitter. Not unpleasant.\n\nThirty minutes later, your stomach is on fire.\n\nAn hour later, you cannot feel your hands.\n\nThe man chained behind you, who nearly did the same thing, watches you convulse and says nothing. Somewhere up the mountain, something large is beginning its descent.\n\nYou don't live to see it arrive.\n\n**[ CAUSE OF DEATH: BLOODBANE POISONING ]**",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        { "label": "⎌ Load Chapter Checkpoint", "requires": null, "effect": null, "next": "__checkpoint__" },
+        { "label": "↺ Start Over", "requires": null, "effect": null, "next": "__newgame__" }
+      ]
+    },
+
+    "ch03_scholar": {
+      "id": "ch03_scholar",
+      "type": "winter_camp",
+      "title": "The Scholar",
+      "text": "The slave behind you lurches toward the berries on all fours.\n\n*\"I would advise against eating those, friend.\"*\n\nThe voice is calm and measured and completely out of place on this mountain. You turn.\n\nA tall man in his forties. Lean, strangely handsome, with a dignity that does not belong on a slave chain. He might be a scholar — or he was, once.\n\n*\"Those are called Bloodbane. They grow in places where human blood was spilled. That is why there are always so many along the slave trade routes.\"*\n\n*\"So what?!\"* the shifty slave behind you snaps.\n\n*\"Bloodbane is poisonous. A few berries might kill an adult man.\"*\n\nThe shifty slave flinches back. You say nothing. You were already not going to touch them.",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "Look around the clearing.",
+          "requires": null,
+          "effect": null,
+          "next": "ch03_vision_recog"
+        }
+      ]
+    },
+
+    "ch03_vision_recog": {
+      "id": "ch03_vision_recog",
+      "type": "nightmare",
+      "title": "The Death Site",
+      "text": "You have been looking at this camp without letting yourself think it.\n\nNow you think it.\n\nThis is the place.\n\nThe bones from your vision at the start of the Nightmare — scattered across the road, buried under snow — they were here. This clearing. This overhang. This same bonfire.\n\nThe thought arrives without panic:\n\n*'The attack will not be in days.'*\n\nAbove you, the mountain is very quiet. The soldiers have stopped talking. The fire crackles. Frost settles on your collar.\n\nAs if to answer your thoughts, a thundering noise rings from above.",
+      "image": null,
+      "onEnter": [
+        { "op": "addXp", "value": 10 }
+      ],
+      "choices": [
+        {
+          "label": "Look up.",
+          "requires": null,
+          "effect": null,
+          "next": "ch03_end"
+        }
+      ]
+    },
+
+    "ch03_end": {
+      "id": "ch03_end",
+      "type": "nightmare",
+      "title": "Something Massive",
+      "text": "Something crashes down from the sky.\n\nThe impact hits before the sound does — a concussion that rattles your teeth, sends snow exploding outward in every direction. The horses scream. The bonfire lurches sideways. Chains snap taut.\n\nYou can see it perfectly in the dark.\n\nEveryone else cannot.\n\n**[ CHAPTER 3 COMPLETE ]**\n\n*To be continued in Chapter 4: Mountain King*",
+      "image": null,
+      "onEnter": null,
+      "choices": [
+        {
+          "label": "↺ Restart Chapter 3",
+          "requires": null,
+          "effect": null,
+          "next": "__checkpoint__"
+        }
+      ]
+    }
+
+  }
+}

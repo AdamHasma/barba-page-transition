@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PROTOKOLL 73</title>
+  <title>Shadow Slave</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&family=Pirata+One&display=swap">
@@ -12,11 +12,12 @@
 <body>
 
   <header id="game-header">
-    <h1 class="game-logo">◈ PROTOKOLL 73</h1>
+    <h1 class="game-logo">◈ SHADOW SLAVE</h1>
     <div class="header-controls">
+      <button id="btn-checkpoint">⎌ Checkpoint</button>
       <button id="btn-save">💾 Save</button>
       <button id="btn-load">📂 Load</button>
-      <button id="btn-reset">🔄 New Game</button>
+      <button id="btn-reset">↺ New Game</button>
     </div>
   </header>
 
@@ -39,12 +40,12 @@
         <div class="stat-row">
           <span class="stat-label">❤️ HP</span>
           <div class="bar-wrap"><div id="hp-bar" class="bar hp-bar-fill"></div></div>
-          <span id="hp-text" class="stat-value">100/100</span>
+          <span id="hp-text" class="stat-value">80/80</span>
         </div>
         <div class="stat-row">
           <span class="stat-label">💧 MP</span>
           <div class="bar-wrap"><div id="mp-bar" class="bar mp-bar-fill"></div></div>
-          <span id="mp-text" class="stat-value">50/50</span>
+          <span id="mp-text" class="stat-value">40/40</span>
         </div>
         <div class="stat-row">
           <span class="stat-label">✨ XP</span>
@@ -52,9 +53,9 @@
           <span id="xp-text" class="stat-value">0/100</span>
         </div>
         <div class="stat-grid">
-          <div class="stat-item"><span>⚔️</span><span class="stat-label">ATK</span><b id="stat-atk">12</b></div>
-          <div class="stat-item"><span>🛡️</span><span class="stat-label">DEF</span><b id="stat-def">5</b></div>
-          <div class="stat-item"><span>⚡</span><span class="stat-label">SPD</span><b id="stat-spd">10</b></div>
+          <div class="stat-item"><span>⚔️</span><span class="stat-label">ATK</span><b id="stat-atk">8</b></div>
+          <div class="stat-item"><span>🛡️</span><span class="stat-label">DEF</span><b id="stat-def">3</b></div>
+          <div class="stat-item"><span>⚡</span><span class="stat-label">SPD</span><b id="stat-spd">12</b></div>
           <div class="stat-item"><span>⭐</span><span class="stat-label">LVL</span><b id="stat-lvl">1</b></div>
           <div class="stat-item"><span>💰</span><span class="stat-label">Gold</span><b id="stat-gold">0</b></div>
         </div>
@@ -63,15 +64,23 @@
       <section id="inventory-panel">
         <h3>INVENTORY</h3>
         <div id="inventory-grid"></div>
-        <div id="inventory-empty" class="empty-hint">No items yet</div>
+        <div id="inventory-empty" class="empty-hint">Nothing yet</div>
       </section>
 
       <section id="skills-panel">
-        <h3>SKILLS</h3>
+        <h3>ASPECTS &amp; ATTRIBUTES</h3>
         <div id="skills-list"></div>
-        <div id="skills-empty" class="empty-hint">No skills yet</div>
+        <div id="skills-empty" class="empty-hint">None yet</div>
       </section>
     </aside>
+  </div>
+
+  <!-- Loading overlay -->
+  <div id="loading-overlay" class="hidden">
+    <div id="loading-inner">
+      <div class="loading-spinner">◈</div>
+      <p>Loading chapter…</p>
+    </div>
   </div>
 
   <!-- Combat overlay -->
@@ -96,19 +105,19 @@
   <div id="levelup-modal" class="hidden">
     <div id="levelup-content">
       <div class="levelup-star">⭐</div>
-      <h2>LEVEL UP!</h2>
+      <h2>POWER INCREASED</h2>
       <p id="levelup-text"></p>
-      <button id="levelup-close">Continue Your Journey</button>
+      <button id="levelup-close">Continue</button>
     </div>
   </div>
 
   <!-- Name input modal -->
   <div id="name-modal" class="hidden">
     <div id="name-content">
-      <h2>A New Journey Begins</h2>
-      <p>What is your name, traveler?</p>
-      <input type="text" id="name-input" placeholder="Enter your name..." maxlength="20" autocomplete="off">
-      <button id="name-confirm">Begin</button>
+      <h2>The Nightmare Begins</h2>
+      <p>The Nightmare Spell has chosen you. What is your name?</p>
+      <input type="text" id="name-input" placeholder="Your name…" maxlength="20" autocomplete="off">
+      <button id="name-confirm">Enter the Nightmare</button>
     </div>
   </div>
 

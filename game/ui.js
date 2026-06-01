@@ -125,9 +125,27 @@ var GameUI = (function() {
     typewriterDone = true;
   }
 
+  /* ── LOADING OVERLAY ── */
+  function showLoadingOverlay() {
+    document.getElementById('loading-overlay').classList.remove('hidden');
+  }
+
+  function hideLoadingOverlay() {
+    document.getElementById('loading-overlay').classList.add('hidden');
+  }
+
+  /* ── CHECKPOINT BUTTON ── */
+  function updateCheckpointButton() {
+    var btn = document.getElementById('btn-checkpoint');
+    if (!btn) return;
+    btn.style.opacity = GameEngine.hasCheckpoint() ? '1' : '0.4';
+  }
+
   /* ── SCENE RENDER ── */
   function renderScene(scene, state) {
     if (!scene) return;
+
+    document.body.classList.toggle('scene-is-gameover', scene.type === 'game_over');
 
     document.getElementById('scene-title').textContent = scene.title || '';
     loadSceneImage(scene.type, scene.image);
@@ -307,7 +325,7 @@ var GameUI = (function() {
   function showLevelUp(level, callback) {
     var modal = document.getElementById('levelup-modal');
     var text = document.getElementById('levelup-text');
-    text.textContent = 'You reached Level ' + level + '!\n+15 Max HP · +8 Max MP · +3 Attack · +2 Defense\nHP fully restored!';
+    text.textContent = 'Power Tier increased to ' + level + '.\n+15 Max HP · +8 Soul Energy · +3 Attack · +2 Defense\nFully restored.';
     modal.classList.remove('hidden');
 
     var btn = document.getElementById('levelup-close');
@@ -329,7 +347,7 @@ var GameUI = (function() {
     input.focus();
 
     function confirm() {
-      var name = input.value.trim() || 'Kaito';
+      var name = input.value.trim() || 'Sunny';
       modal.classList.add('hidden');
       callback(name);
     }
@@ -353,6 +371,9 @@ var GameUI = (function() {
     showToast: showToast,
     showLevelUp: showLevelUp,
     showNameModal: showNameModal,
-    loadSceneImage: loadSceneImage
+    loadSceneImage: loadSceneImage,
+    showLoadingOverlay: showLoadingOverlay,
+    hideLoadingOverlay: hideLoadingOverlay,
+    updateCheckpointButton: updateCheckpointButton
   };
 })();
